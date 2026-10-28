@@ -8,6 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app.py .
 
+ARG APP_VERSION=dev
+ENV APP_VERSION=$APP_VERSION
+
 # Run as a non-root user
 RUN useradd --system --no-create-home --uid 10001 appuser
 USER appuser
